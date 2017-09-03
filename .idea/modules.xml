@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/infra-stack.iml" filepath="$PROJECT_DIR$/infra-stack.iml" />
+      <module fileurl="file://$PROJECT_DIR$/docker-stack.iml" filepath="$PROJECT_DIR$/docker-stack.iml" />
     </modules>
   </component>
 </project>
