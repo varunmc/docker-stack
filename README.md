@@ -1,2 +1,2 @@
-# infra-stack
-_The docker-compose specification of the infrastructure_
+# docker-stack
+_docker-compose specification of the stack_
