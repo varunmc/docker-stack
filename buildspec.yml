@@ -1,0 +1,14 @@
+version: 0.1
+
+phases:
+  pre_build:
+    commands:
+    - echo "PreBuild Started"
+
+  build:
+    commands:
+    - echo "Build Started"
+
+  post_build:
+    commands:
+    - echo "PostBuild Started"
