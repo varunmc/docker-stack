@@ -1,12 +1,15 @@
 version: "3"
 
 services:
-  artifactory:
-    image: docker.bintray.io/jfrog/artifactory-oss:latest
+  zookeeper:
+    image: mc.varun/zookeeper:latest
     ports:
-      - 8081:8081
+      - 2181:2181
+      - 2888:2888
+      - 3888:3888
+      - 8080:8080
 
   platform:
     depends_on:
-      - artifactory
+      - zookeeper
     image: busybox:latest
