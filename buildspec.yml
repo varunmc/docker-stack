@@ -9,8 +9,4 @@ phases:
 
   build:
     commands:
-    - echo "Build Started"
-
-  post_build:
-    commands:
-    - echo "PostBuild Started"
+    - ecs-cli compose service up
