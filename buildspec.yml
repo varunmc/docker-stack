@@ -9,8 +9,4 @@ phases:
 
   build:
     commands:
-    - ecs-cli compose service create
-    
-  post_build:
-    commands:
-    - ecs-cli compose service start
+    - ecs-cli compose service up
