@@ -157,7 +157,7 @@ Resources:
     Properties:
       IamInstanceProfile: !Ref InstanceProfile
       ImageId: ami-9eb4b1e5
-      InstanceType: m3.large
+      InstanceType: m4.large
       SecurityGroups:
       - !Ref SecurityGroup
       UserData:
