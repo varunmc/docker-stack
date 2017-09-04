@@ -156,7 +156,7 @@ Resources:
     Type: AWS::AutoScaling::LaunchConfiguration
     Properties:
       IamInstanceProfile: !Ref InstanceProfile
-      ImageId: ami-04351e12
+      ImageId: ami-9eb4b1e5
       InstanceType: m3.large
       SecurityGroups:
       - !Ref SecurityGroup
