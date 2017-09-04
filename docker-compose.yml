@@ -2,7 +2,7 @@ version: "2"
 
 services:
   zookeeper:
-    image: mc.varun/zookeeper:latest
+    image: 497513737772.dkr.ecr.us-east-1.amazonaws.com/mc.varun/zookeeper:latest
     ports:
       - 2181:2181
       - 2888:2888
