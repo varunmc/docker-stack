@@ -45,90 +45,90 @@ Resources:
     Properties:
       ClusterName: StagingCluster
 
-#  CodeBuild:
-#    Type: AWS::CodeBuild::Project
-#    Properties:
-#      Artifacts:
-#        Type: NO_ARTIFACTS
-#      Environment:
-#        ComputeType: BUILD_GENERAL1_SMALL
-#        Image: aws/codebuild/docker:1.12.1
-#        Type: LINUX_CONTAINER
-#      Name: Stack
-#      ServiceRole: !GetAtt [CodeBuildRole, Arn]
-#      Source:
-#        Auth:
-#          Resource: !Ref GitHubToken
-#          Type: OAUTH
-#        Location: https://github.com/varunmc/docker-stack.git
-#        Type: GITHUB
+  CodeBuild:
+    Type: AWS::CodeBuild::Project
+    Properties:
+      Artifacts:
+        Type: NO_ARTIFACTS
+      Environment:
+        ComputeType: BUILD_GENERAL1_SMALL
+        Image: aws/codebuild/docker:1.12.1
+        Type: LINUX_CONTAINER
+      Name: Stack
+      ServiceRole: !GetAtt [CodeBuildRole, Arn]
+      Source:
+        Auth:
+          Resource: !Ref GitHubToken
+          Type: OAUTH
+        Location: https://github.com/varunmc/docker-stack.git
+        Type: GITHUB
 
-#  CodeBuildRole:
-#    Type: AWS::IAM::Role
-#    Properties:
-#      AssumeRolePolicyDocument:
-#        Version: 2012-10-17
-#        Statement:
-#        - Action:
-#          - sts:AssumeRole
-#          Effect: Allow
-#          Principal:
-#            Service:
-#            - codebuild.amazonaws.com
-#      ManagedPolicyArns:
-#      - arn:aws:iam::aws:policy/PowerUserAccess
+  CodeBuildRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+        - Action:
+          - sts:AssumeRole
+          Effect: Allow
+          Principal:
+            Service:
+            - codebuild.amazonaws.com
+      ManagedPolicyArns:
+      - arn:aws:iam::aws:policy/PowerUserAccess
 
-#  CodePipeline:
-#    Type: AWS::CodePipeline::Pipeline
-#    Properties:
-#      ArtifactStore:
-#        Location: !Ref Store
-#        Type: S3
-#      Name: Stack
-#      RoleArn: !GetAtt [CodePipelineRole, Arn]
-#      Stages:
-#      - Name: Source
-#        Actions:
-#        - Name: Checkout
-#          ActionTypeId:
-#            Category: Source
-#            Owner: ThirdParty
-#            Provider: GitHub
-#            Version: 1
-#          Configuration:
-#            Branch: master
-#            OAuthToken: !Ref GitHubToken
-#            Owner: varunmc
-#            Repo: docker-stack
-#          OutputArtifacts:
-#          - Name: Sources
-#      - Name: Build
-#        Actions:
-#        - Name: Build
-#          ActionTypeId:
-#            Category: Build
-#            Owner: AWS
-#            Provider: CodeBuild
-#            Version: 1
-#          Configuration:
-#            ProjectName: !Ref CodeBuild
-#          InputArtifacts:
-#          - Name: Sources
+  CodePipeline:
+    Type: AWS::CodePipeline::Pipeline
+    Properties:
+      ArtifactStore:
+        Location: !Ref Store
+        Type: S3
+      Name: Stack
+      RoleArn: !GetAtt [CodePipelineRole, Arn]
+      Stages:
+      - Name: Source
+        Actions:
+        - Name: Checkout
+          ActionTypeId:
+            Category: Source
+            Owner: ThirdParty
+            Provider: GitHub
+            Version: 1
+          Configuration:
+            Branch: master
+            OAuthToken: !Ref GitHubToken
+            Owner: varunmc
+            Repo: docker-stack
+          OutputArtifacts:
+          - Name: Sources
+      - Name: Build
+        Actions:
+        - Name: Build
+          ActionTypeId:
+            Category: Build
+            Owner: AWS
+            Provider: CodeBuild
+            Version: 1
+          Configuration:
+            ProjectName: !Ref CodeBuild
+          InputArtifacts:
+          - Name: Sources
 
-#  CodePipelineRole:
-#    Type: AWS::IAM::Role
-#    Properties:
-#      AssumeRolePolicyDocument:
-#        Version: 2012-10-17
-#        Statement:
-#        - Action:
-#          - sts:AssumeRole
-#          Effect: Allow
-#          Principal:
-#            Service:
-#            - codepipeline.amazonaws.com
-#      ManagedPolicyArns:
-#      - arn:aws:iam::aws:policy/AdministratorAccess
+  CodePipelineRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+        - Action:
+          - sts:AssumeRole
+          Effect: Allow
+          Principal:
+            Service:
+            - codepipeline.amazonaws.com
+      ManagedPolicyArns:
+      - arn:aws:iam::aws:policy/AdministratorAccess
 
   InstanceRole:
     Type: AWS::IAM::Role
