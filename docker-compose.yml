@@ -1,17 +1,15 @@
 version: "2"
 
 services:
+  artifactory:
+    image: docker.bintray.io/jfrog/artifactory-oss:latest
+    ports:
+    - 8081:8081
+
   kafka:
     depends_on:
-      - zookeeper
+    - zookeeper
     image: 497513737772.dkr.ecr.us-east-1.amazonaws.com/mc.varun/kafka:latest
-    ports:
-      - 9092:9092
 
   zookeeper:
     image: 497513737772.dkr.ecr.us-east-1.amazonaws.com/mc.varun/zookeeper:latest
-    ports:
-      - 2181:2181
-      - 2888:2888
-      - 3888:3888
-      - 8080:8080
