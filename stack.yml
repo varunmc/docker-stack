@@ -82,7 +82,7 @@ Resources:
     Type: AWS::CodePipeline::Pipeline
     Properties:
       ArtifactStore:
-        Location: !Ref Store
+        Location: !Ref CodePipelineStore
         Type: S3
       Name: Stack
       RoleArn: !GetAtt [CodePipelineRole, Arn]
@@ -114,6 +114,9 @@ Resources:
             ProjectName: !Ref CodeBuild
           InputArtifacts:
           - Name: Sources
+
+  CodePipelineStore:
+    Type: AWS::S3::Bucket
 
   CodePipelineRole:
     Type: AWS::IAM::Role
@@ -196,5 +199,7 @@ Resources:
                 - /etc/cfn/cfn-hup.conf
                 - /etc/cfn/hooks.d/cfn-auto-reloader.conf
 
-  Store:
+  MavenRepository:
     Type: AWS::S3::Bucket
+    Properties:
+      BucketName: maven.varun.mc
