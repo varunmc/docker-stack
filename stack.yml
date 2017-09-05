@@ -202,4 +202,7 @@ Resources:
   MavenRepository:
     Type: AWS::S3::Bucket
     Properties:
+      AccessControl: PublicRead
       BucketName: maven.varun.mc
+      WebsiteConfiguration:
+        IndexDocument: index.html
