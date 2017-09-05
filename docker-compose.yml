@@ -8,8 +8,3 @@ services:
       - 2888:2888
       - 3888:3888
       - 8080:8080
-
-  platform:
-    depends_on:
-      - zookeeper
-    image: busybox:latest
