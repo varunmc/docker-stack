@@ -1,6 +1,13 @@
 version: "2"
 
 services:
+  kafka:
+    depends_on:
+      - zookeeper
+    image: 497513737772.dkr.ecr.us-east-1.amazonaws.com/mc.varun/kafka:latest
+    ports:
+      - 9092:9092
+
   zookeeper:
     image: 497513737772.dkr.ecr.us-east-1.amazonaws.com/mc.varun/zookeeper:latest
     ports:
