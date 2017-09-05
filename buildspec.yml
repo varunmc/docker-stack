@@ -9,4 +9,4 @@ phases:
 
   build:
     commands:
-    - COMPOSE_PROJECT_NAME=docker-stack ecs-cli compose up plaform
+    - COMPOSE_PROJECT_NAME=docker-stack ecs-cli compose service up plaform
