@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  kafka:
+    depends_on:
+    - zookeeper
+    image: mc.varun.infra/kafka:latest
+    ports:
+    - 9092:9092
+
+  zookeeper:
+    image: mc.varun.infra/zookeeper:latest
+    ports:
+    - 2181:2181
+    - 2888:2888
+    - 3888:3888
+    - 8080:8080

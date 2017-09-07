@@ -9,4 +9,5 @@ phases:
 
   build:
     commands:
+    - cd staging
     - COMPOSE_PROJECT_NAME=docker-stack ecs-cli compose service up
