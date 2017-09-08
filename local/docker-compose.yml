@@ -4,12 +4,12 @@ services:
   kafka:
     depends_on:
     - zookeeper
-    image: mc.varun.infra/kafka:latest
+    image: mc.varun/kafka:latest
     ports:
     - 9092:9092
 
   zookeeper:
-    image: mc.varun.infra/zookeeper:latest
+    image: mc.varun/zookeeper:latest
     ports:
     - 2181:2181
     - 2888:2888
