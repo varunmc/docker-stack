@@ -1,2 +1,2 @@
 # docker-stack
-_docker-compose specification of the application stack_
+_Multi-environment specification of the application stack_
