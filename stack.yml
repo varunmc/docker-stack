@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: 2010-09-09
-Description: The application stack
+Description: The Application Stack
 
 ####################
 Parameters:
