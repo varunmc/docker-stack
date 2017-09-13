@@ -1,6 +1,8 @@
 # docker-stack
 _Multi-environment application stack_
 
+
+
 ## Pre-Reqisites
 * All `docker-*` projects
 
